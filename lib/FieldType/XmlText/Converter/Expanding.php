@@ -114,7 +114,7 @@ class Expanding implements Converter
      * @param \DOMElement $paragraph
      * @return bool
      */
-    private function isTemporary(DOMElement $paragraph)
+    protected function isTemporary(DOMElement $paragraph)
     {
         return
             $paragraph->hasAttribute('xmlns:tmp')
@@ -132,7 +132,7 @@ class Expanding implements Converter
      * @param \DOMElement $paragraph
      * @return bool
      */
-    private function isEmpty(DOMElement $paragraph)
+    protected function isEmpty(DOMElement $paragraph)
     {
         return $paragraph->childNodes->length === 0;
     }
@@ -143,7 +143,7 @@ class Expanding implements Converter
      * @param \DOMElement $paragraph
      * @return bool
      */
-    private function isChildOfListItem(DOMElement $paragraph)
+    protected function isChildOfListItem(DOMElement $paragraph)
     {
         return $paragraph->parentNode->localName === 'li';
     }
@@ -157,7 +157,7 @@ class Expanding implements Converter
      * @param \DOMElement $paragraph
      * @return bool
      */
-    private function containsBlock(DOMElement $paragraph)
+    protected function containsBlock(DOMElement $paragraph)
     {
         $xpath = new DOMXPath($paragraph->ownerDocument);
         $containedExpression = $this->getContainmentMapXPathExpression(false);

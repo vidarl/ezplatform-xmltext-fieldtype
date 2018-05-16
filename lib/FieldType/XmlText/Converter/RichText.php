@@ -35,7 +35,7 @@ class RichText implements Converter
 
         $this->converter = new Aggregate(
             [
-                new ToRichTextPreNormalize(new Expanding(), new EmbedLinking()),
+                new ToRichTextPreNormalize(new ExpandingToRichText(), new EmbedLinking()),
                 new Xslt(
                     './vendor/ezsystems/ezpublish-kernel/eZ/Publish/Core/FieldType/RichText/Resources/stylesheets/ezxml/docbook/docbook.xsl',
                     [
